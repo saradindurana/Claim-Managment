@@ -8,3 +8,4 @@ paste it inside the claimapp/src folder.
 
 for backend create a schema in mysql with
 create schema claimsmanagment
+then unzip the files and import the projects in the editor
