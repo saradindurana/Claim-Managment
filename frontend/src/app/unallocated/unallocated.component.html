@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">The Insurance Company</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="" (click)="openallocated()">Show surveyor allocated list</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" (click)="openpage()">Surveyor Fee</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="container">
+    <br><br>
+  <div class="h2 text-primary">
+    Surveyor Unallocated Claim List
+  </div><br>
+  <table class="table  table-bordered" >
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">ClaimID</th>
+          <th scope="col">Date Of Accident</th>
+          <th scope="col">Estimated Loss</th>
+          <th scope="col">Update Claim</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let category of data" >
+        <tr class="table-info">
+          <td >{{category.claimId}}</td>
+          <td >{{category.dateOfAccident }}</td>
+          <td >{{category.estimatedLoss}}</td>
+          <td><button class="btn btn-primary" (click)="gotoUpdate(category.claimId)">Update</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-footer></app-footer>

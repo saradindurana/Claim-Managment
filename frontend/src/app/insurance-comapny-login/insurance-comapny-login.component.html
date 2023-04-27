@@ -1,0 +1,32 @@
+<div class="box-form" style="height: 500px;">
+    <div class="left">
+        <div class="overlay">
+            <h1 style="font-size: 100px;">Welcome</h1>
+            <p style="font-size: large; margin-left: 50px;">Please Log in to Continue.</p>
+
+        </div>
+    </div>
+
+
+    <div class="right" >
+        <h5 style="margin-top: 70px;">Login</h5>
+        <p style="margin-top: 60px; color: black;">Please Log in with Correct credentials..................................................................</p>
+
+        <form #logindetails="ngForm" (ngSubmit)="login(logindetails.value)">
+            <div class="inputs">
+                <label for="user name">
+                <input type="text" ngModel id="user" name="user" placeholder="user name">
+            </label>
+                <br>
+                <label for="">
+                <input type="password" ngModel id="user" name="password" placeholder="password">
+            </label>
+            </div>
+
+            <br>
+            <p *ngIf="invalid" style="color: rgb(182, 28, 28); font-size: large;">Please give Correct credentials</p>
+            <button>Login</button>
+        </form>
+    </div>
+
+</div>

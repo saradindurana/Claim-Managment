@@ -1,0 +1,143 @@
+<div class="header ">
+  <nav
+    class="nav navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top"
+  > 
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav nav-items">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="" (click)="newsurvey()"> Add new Survey</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="container">
+    <div class="row">
+      <div>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="heading">
+            <h2 class="heading--highlight highlight">Update Report
+            </h2>
+          </div>
+          <!-- <div *ngIf="singleClaim.claimStatus == false">
+            <h2>Claim {{singleClaim.claimId}} Already Close</h2>
+          </div> -->
+          <div> 
+            <table class="table" >
+             <!-- <label style="font-size: 2rem;font-weight: bold;" for="Surveyor">Eligible Surveyors</label> -->
+
+             
+                <label for="claimid">Claim Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter claimid"
+                  name="claimid"
+                  ngModel
+                  maxlength="10"
+                  minlength="10"
+                  required
+                  #claimid="ngModel"
+                  
+                />
+                <span  *ngIf="claimid.errors?.['minlength']&& !claimid.valid && claimid.touched" style="color: red"
+                >ClaimID should be minimam 10 characters</span
+              ><br>
+                <div *ngIf="claimid.valid && claimid.touched">
+                <div class="col-xs-6 col-md-6 row__content">
+                  <label for="policyno">Policy No</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter policy ID"
+                    name="policyno"
+                    maxlength="7"
+                    minlength="7"
+                    [(ngModel)]="policy"
+                    ngmodel
+                    required
+                    #policyno="ngModel"
+                    (mouseover)="onLeave(claimid.value)"
+                    
+                  />
+                  <span  *ngIf="policyno.errors?.['minlength']&& !policyno.valid && policyno.touched" style="color: red"
+                  >Policy No should be minimum 7 characters</span
+                ><br>
+                <label for="labour">Labour Charges</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Enter Labour Charges"
+                  [(ngModel)]="labour_cost" 
+                   ngmodel
+                  required
+                  #labour="ngModel"
+                  name="labour_cost"
+                />
+                <span *ngIf="!labour.valid && labour.touched" style="color: red"
+                  >Please enter Labour Charges</span
+                ><br>
+                <label for="parts">Parts Cost</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Enter Parts Cost"
+                  
+                  [(ngModel)]="parts_Cost" 
+                  ngModel
+                  required
+                  #parts="ngModel"
+                  name="parts_Cost"
+                />
+                <span *ngIf="!parts.valid && parts.touched" style="color: red"
+                  >Please enter Parts Cost</span
+                ><br>
+                <label for="clause">Policy Clause</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Enter Policy Clause"
+                  name="clause"
+                  ngModel
+                  [(ngModel)]="policy_Clause" 
+                  required
+                  #clause="ngModel"
+                  name="policy_Clause"
+                />
+                <span *ngIf="!clause.valid && clause.touched" style="color: red"
+                  >Please enter Policy Clause</span
+                ><br>
+                <label for="dep">Depreciation Cost</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Enter Depreciation Cost"
+                  name="dep_cost"
+                  ngModel
+                  required
+                  [(ngModel)]="dep_cost"
+                  
+                  #dep="ngModel"
+                />
+                <span *ngIf="!dep.valid && dep.touched" style="color: red"
+                  >Please enter Depreciation Cost</span
+                ><br>
+              </div>
+            </div>
+              <button style="color: black;margin-top:20px;margin-bottom: 50px; margin-left: 80%;" type="button "  [disabled]="!f.form.valid" type="submit" class="btn btn-primary">
+                Submit
+                &rarr;
+              </button> 
+ 
+              
+              
+             
+            </table>
+         </div>       
+  
+        </form>
+      </div>
+     
+    </div>
+  </div>
+  <app-footer></app-footer>

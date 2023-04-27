@@ -1,0 +1,137 @@
+<div class="header ">
+    <nav
+      class="nav navbar navbar-expand-lg navbar-light navbar-fixed-top"
+    > 
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav nav-items">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="view"> View Report</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+      <div class="row">
+        <div>
+        </div>
+        <div
+          class="
+            col-xs-12 col-md-5 col-sm-10 col-sm-offset-1 col-md-offset-2
+            row__content
+          "
+        >
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="heading">
+              <h2 class="heading--highlight highlight">Submit Report
+              </h2>
+            </div>
+           
+            <div> 
+              <table class="table" >
+              
+  
+               
+                  <label for="claimid">Claim Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter claimid"
+                    name="claimid"
+                    ngModel
+                    maxlength="10"
+                    minlength="10"
+                    required
+                    #claimid="ngModel"
+                  />
+                  <span  *ngIf="f.controls['claimid'].hasError('minlength')&& !claimid.valid && claimid.touched" style="color: red"
+                  >ClaimID should be minimam 10 characters</span
+                ><br>
+                  <div *ngIf="claimid.valid && claimid.touched">
+                  <div class="col-xs-6 col-md-6 row__content">
+                    <label for="policyno">Policy No</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter policy ID"
+                      name="policyno"
+                      maxlength="7"
+                      minlength="7"
+                      ngModel
+                      required
+                      #policyno="ngModel"
+                    />
+                    <span  *ngIf="f.controls['policyno'].errors?.['minlength']&& !policyno.valid && policyno.touched" style="color: red"
+                    >Policy No should be minimum 7 characters</span
+                  ><br>
+                  <label for="labour">Labour Charges</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Enter Labour Charges"
+                    name="labour"
+                    ngModel
+                    required
+                    #labour="ngModel"
+                  />
+                  <span *ngIf="!labour.valid && labour.touched" style="color: red"
+                    >Please enter Labour Charges</span
+                  ><br>
+                  <label for="parts">Parts Cost</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Enter Parts Cost"
+                    name="parts"
+                    ngModel
+                    required
+                    #parts="ngModel"
+                  />
+                  <span *ngIf="!parts.valid && parts.touched" style="color: red"
+                    >Please enter Parts Cost</span
+                  ><br>
+                  <label for="clause">Policy Clause</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Enter Policy Clause"
+                    name="clause"
+                    ngModel
+                    required
+                    #clause="ngModel"
+                  />
+                  <span *ngIf="!clause.valid && clause.touched" style="color: red"
+                    >Please enter Policy Clause</span
+                  ><br>
+                  <label for="dep">Depreciation Cost</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Enter Depreciation Cost"
+                    name="dep"
+                    ngModel
+                    required
+                    #dep="ngModel"
+                  />
+                  <span *ngIf="!dep.valid && dep.touched" style="color: red"
+                    >Please enter Depreciation Cost</span
+                  ><br>
+                </div>
+              </div>
+                <button style="color: black;margin-top:10px;margin-bottom: 20px;" type="button"  [disabled]="!f.form.valid" type="submit" class="btn btn-primary">
+                  Submit
+                  &rarr;
+                </button> 
+   
+                
+                
+               
+              </table>
+           </div>       
+    
+          </form>
+        </div>
+       
+      </div>
+    </div>
+    <app-footer></app-footer>

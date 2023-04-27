@@ -1,0 +1,10 @@
+com\cts\repository\ClaimDetailsRepo.class
+com\cts\entity\ClaimDetails.class
+com\cts\entity\Policy.class
+com\cts\entity\Surveyor.class
+com\cts\InsuranceManagementServiceApplication.class
+com\cts\repository\PolicyRepo.class
+com\cts\entity\Fees.class
+com\cts\controller\InsuranceController.class
+com\cts\repository\SurveyorRepo.class
+com\cts\repository\FeesRepo.class

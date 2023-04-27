@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        
+        <div>
+            <form (ngSubmit)="onSubmit(myform)" #myform="ngForm">
+                <div class="heading">
+                    <h2 style="margin-top: 10px;">Claim Update Portal
+                    </h2>
+                </div>
+                <div *ngIf="singleClaim.claimStatus == false">
+                    <h2 style="font-size: 120px;">Claim <span style="color: blue;">{{singleClaim.claimId}} </span>Already Closed</h2>
+                </div>
+                <div *ngIf="singleClaim.claimStatus == true">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <label style="font-size: 2rem;font-weight: bold;" for="Surveyor">Eligible
+                                    Surveyors</label>
+
+                                <div class="col-xs-6 col-md-6 row__content">
+                                    <label for="surveyor">Claim Status</label>
+                                    <select class="form-control" name="claimStatus" ngModel required #claimStatus="ngModel" [disabled]="singleClaim.amountApprovedBySurveyor > 0">
+                                        <option [value]="true"> Open</option>
+                                        <option [value]="false">
+                                            Close
+                                        </option>
+                                    </select>
+                                    <span *ngIf="!claimStatus.valid && claimStatus.touched" style="color: red">Please
+                                        select a Claim Status</span><br>
+
+
+                                    <label for="surve">Surveyor</label>
+                                    <select class="form-control" name="surve" ngModel required #surve="ngModel" [disabled]="singleClaim.amountApprovedBySurveyor > 0">
+                                        <option *ngFor="let survey of surveyor" [ngValue]="survey">
+                                            {{ survey.firstName+ " " + survey.lastName }}
+                                        </option>
+                                    </select>
+                                    <span *ngIf="!surve.valid && surve.touched" style="color: red">Please select a
+                                        Surveyor</span>
+                                    <!-- <label *ngIf="singleClaim.amountApprovedBySurveyor == '0'">Surveyor needs to allocate Amount first</label> -->
+                                    <div *ngIf="singleClaim.amountApprovedBySurveyor!='0'">
+                                        <h2>Allocated Amount</h2>
+                                        <h5>{{singleClaim.amountApprovedBySurveyor}}</h5>
+                                    </div>
+                                    <br>
+                                    <button [disabled]="!myform.form.valid" type="submit" class="btn btn-dark">
+                                        Allocate Surveyor
+                                    </button>
+
+                                  
+
+                                </div>
+                    </table>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+<button class="btn btn-primary"
+[disabled]="singleClaim.amountApprovedBySurveyor == '0' || singleClaim.claimStatus==false "
+(click)="releasefund()" style="margin-left: 1000px;">
+Release Funds
+&rarr;
+</button>
+<app-footer></app-footer>

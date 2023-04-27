@@ -1,0 +1,51 @@
+<div class="container">
+  <br><br>
+  <div class="h3 text-primary">
+      View Survey Report 
+  </div>
+  <br>
+  <form #surveyForm="ngForm" (submit)="getSurvey()">
+    <div class="form-group">
+      <label for="claimId">Claim ID:</label>
+      <input type="text" id="claim_Id" name="claim_Id" [(ngModel)]="claim_Id" placeholder="Enter Claim Id here" class="form-control" required>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" [disabled]="!surveyForm.valid">View Report</button>
+  </form>
+ 
+  <br><br>
+  <div *ngIf="tableVisible">
+    
+      <table class="table table-striped table-bordered">
+          <thead>
+              <th>Claim Id</th>
+              <th>Policy No</th>
+              <th>Labour Charges</th>
+              <th>Parts Cost</th>
+              <th>Policy Clause</th>
+              <th>Depreciation Cost</th>
+              <th>Total Amount</th>
+              <th>Action</th>
+          </thead>
+         
+          <tbody>
+              <tr *ngFor="let data of data">
+                  <tr>
+                  <td>{{data.claim_Id}}</td>
+                  <td>{{data.policy_No}}</td>
+                  <td>{{data.labour_Charges}}</td>
+                  <td>{{data.parts_Cost}}</td>
+                  <td>{{data.policy_Class}}</td>
+                  <td>{{data.depreciation_Cost}}</td>
+                  <td>{{data.total_Amount}}</td>
+                  <td>
+                      <button class="btn btn-primary" (click)="onUpdate(data.claim_Id)">Update</button>
+                  </td>
+               </tr>
+          </tbody>
+      </table>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">The Insurance Company</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active"  href="" aria-current="page" (click)="unallocated()">Show surveyor Unallocated list</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="" aria-current="page" (click)="allocated()">Show surveyor allocated list</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+    <div class="row">
+      
+      <div>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="heading">
+            <h2 class="heading--highlight highlight" style="margin-top: 10px;">Release Fees
+            </h2>
+          </div>
+        
+          <div> 
+            <table class="table" >
+           
+
+             
+                <label for="claimid">Claim Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter claimid"
+                  name="claimid"
+                  ngModel
+                  maxlength="10"
+                  minlength="10"
+                  required
+                  #claimid="ngModel"
+                />
+                <span  *ngIf="claimid.errors?.['minlength'] && !claimid.valid && claimid.touched" style="color: red"
+                >ClaimID should be minimam 10 characters</span
+              ><br>
+                <div *ngIf="isEnabled">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Fee Id</th>
+                            <th scope="col">Estimated Start Limit</th>
+                            <th scope="col">Estimaed End Limit</th>
+                            <th scope="col">Fee Allocated</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr >
+                            <td>{{feeReport.feeId}}</td>
+                            <td>{{feeReport.estimatedStartLimit}}</td>
+                            <td>{{feeReport.estimateEndLimit}}</td>
+                            <td>{{feeReport.fees}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+            </div>
+            <div *ngIf="error && Visible">
+                {{error}}
+            </div>
+              <button style="color: black;margin-top:20px;margin-bottom: 20px;" type="button"  [disabled]="!f.form.valid" type="submit" class="btn btn-primary">
+                Release Fees
+                &rarr;
+              </button> 
+ 
+              
+              
+             
+            </table>
+         </div>       
+  
+        </form>
+      </div>
+     
+    </div>
+  </div>
+<app-footer></app-footer>
+  

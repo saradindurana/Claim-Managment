@@ -1,0 +1,68 @@
+<div class="header ">
+    <nav
+      class="nav navbar navbar-expand-lg navbar-light navbar-fixed-top"
+    >
+      <!-- <a class="navbar-brand" routerLink="home"
+        >Claim Managing Solutions</a
+      > -->
+      <!-- <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated"
+      [routerLink]="[username, 'viewClaims']"><a>View Bills</a></li>
+  
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated"
+      [routerLink]="[username, 'getClaimStatus']"><a>View Claim Status</a>
+      </li>
+  
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated" 
+      [routerLink]="[username, 'submitClaim']"><a>Submit Claim</a>
+      </li> -->
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav nav-items">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="unallocated"> Surveyor Not Allocated</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="irda"> Show Reports</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="fee">  Surveyor Fee </a>
+          </li>
+          <!-- <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="insured"> Insured </a>
+          </li>  
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="surveyor"> Surveyor </a>
+          </li> 
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="irda"> IRDA </a>
+          </li> -->
+          
+          <!-- <li class="nav-item" routerLinkActive="active" *ngIf="!isAuthenticated">
+            <a class="nav-link" routerLink="auth"> Login </a>
+          </li> -->
+  
+          <!-- <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link"> Login </a>
+          </li> -->
+  
+  
+          <!-- <div class="dropdown" routerLinkActive="active" *ngIf="isAuthenticated">
+            <div class="projects">
+              <button class="nav-link">
+                <img
+                  src="../../assets/img/user.png"
+                  alt="user icon"
+                  class="user-icon"
+                />Welcome {{ username }}
+              </button>
+              <ul>
+                
+                <li (click)="onLogout()"><a>Logout</a></li>
+              </ul>
+            </div>
+          </div> -->
+        </ul>
+      </div>
+    </nav>
+  </div>
+  

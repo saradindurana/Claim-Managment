@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+      <div>
+      </div>
+      <div>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="heading">
+            <h2 class="heading--highlight highlight">Create New Claim
+            </h2>
+          </div>
+         
+          <div> 
+            <table class="table" >
+              <tbody>
+                <tr>
+            
+
+             <div class="col-xs-6 col-md-6 row__content">
+                <label for="policyno">Policy No</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Policy No"
+                  name="policyno"
+                  ngModel
+                  required
+                  minlength="7"
+                  maxlength ="7"
+                  #policyno="ngModel"
+                />
+                
+                <span *ngIf="policyno.invalid && (policyno.dirty || policyno.touched)">
+                  
+                  <span *ngIf="policyno.errors?.['minlength']">policyno must be 7 characters.</span>
+                </span>
+                <br>
+                <label for="loss">Estimated Loss</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Enter Estimated Loss"
+                  name="loss"
+                  ngModel
+                  required
+                  min="5000"
+                  max="70000"
+                  #loss="ngModel"
+                />
+              <br>
+              <br>
+              <span *ngIf="loss.invalid && (loss.dirty || loss.touched)">
+                  
+                <span *ngIf="loss.errors?.['min']">Estimated Loss Should be > 5000</span>
+                <span *ngIf="loss.errors?.['max']" style="color: red">Estimated Loss Should be < 70000</span>
+              </span>
+                <label for="date_acc">Date of Accident</label>
+                <input
+                  type="Date"
+                  class="form-control"
+                  placeholder="Enter Estimated Loss"
+                  name="date_acc"
+                  ngModel
+                  required
+                  #date_acc="ngModel"
+                />
+                <span *ngIf="!date_acc.valid && date_acc.touched" style="color: red"
+                  >Please enter Date of Accident</span
+                >
+              </div>
+              <button style="color: black;margin-top:20px;margin-bottom: 20px;" type="button" class="btn btn-secondary" [disabled]="!f.form.valid" type="submit" class="btn btn-dark">
+                Add Claim
+                
+              </button> 
+              
+ 
+              
+              
+             
+            </table>
+         </div>       
+  
+        </form>
+      </div>
+     
+    </div>
+  </div>
+  <app-footer></app-footer>
