@@ -1,7 +1,8 @@
 # Claim-Managment
 to use the frontend nodejs must be installed.
 Then open cmd and type ng new claimapp.
-extract the src.zip file
+open frontend and open src folder
+
 copy everything.
 paste it inside the claimapp/src folder.
 
